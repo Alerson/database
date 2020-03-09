@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.information.database.error.ResourceNotFoundException;
+import com.information.database.model.Pessoa;
 import com.information.database.service.Service;
 
 @CrossOrigin
@@ -18,11 +19,11 @@ public class RestController {
 	Service service;
 
 	@GetMapping("info/{value}")
-	public String getInforDataBase(@PathVariable String value) {
+	public Pessoa getInforDataBase(@PathVariable String value) {
 		if (value.equals("um")) {
 			throw new ResourceNotFoundException("My Exception " + value);
 		}
-		return value;
+		return new Pessoa();
 	}
 
 }
