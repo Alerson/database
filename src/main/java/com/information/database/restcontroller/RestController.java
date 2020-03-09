@@ -1,6 +1,8 @@
 package com.information.database.restcontroller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,11 +21,14 @@ public class RestController {
 	Service service;
 
 	@GetMapping("info/{value}")
-	public Pessoa getInforDataBase(@PathVariable String value) {
+	public ResponseEntity<?> getInforDataBase(@PathVariable String value) {
 		if (value.equals("um")) {
 			throw new ResourceNotFoundException("My Exception " + value);
 		}
-		return new Pessoa();
+		Pessoa p = new Pessoa();
+		p.setNome("Alerson");
+		p.setSobrenome("Rigo");
+		return new ResponseEntity<>(p, HttpStatus.OK);
 	}
 
 }

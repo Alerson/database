@@ -16,7 +16,7 @@ public class ResourceNotFoundDetail {
 		this.developerMessage = builder.developerMessage;
 	}
 
-	private ResourceNotFoundDetail() {
+	public ResourceNotFoundDetail() {
 	}
 
 	public String getTitle() {
