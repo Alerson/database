@@ -1,7 +1,5 @@
 package com.information.database.error;
 
-import javax.annotation.Generated;
-
 public class ResourceNotFoundDetail {
 
 	private String title;
