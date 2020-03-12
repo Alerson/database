@@ -1,5 +1,7 @@
 package com.information.database.error;
 
+import javax.annotation.Generated;
+
 public class ResourceNotFoundDetail {
 
 	private String title;
@@ -38,6 +40,9 @@ public class ResourceNotFoundDetail {
 	public String getDeveloperMessage() {
 		return developerMessage;
 	}
+	public static Builder builder() {
+		return new Builder();
+	}
 
 	public static final class Builder {
 		private String title;
@@ -49,31 +54,27 @@ public class ResourceNotFoundDetail {
 		private Builder() {
 		}
 
-		public static Builder newBuilder() {
-			return new Builder();
-		}
-
-		public Builder title(String title) {
+		public Builder withTitle(String title) {
 			this.title = title;
 			return this;
 		}
 
-		public Builder status(int status) {
+		public Builder withStatus(int status) {
 			this.status = status;
 			return this;
 		}
 
-		public Builder detail(String detail) {
+		public Builder withDetail(String detail) {
 			this.detail = detail;
 			return this;
 		}
 
-		public Builder timestamp(long timestamp) {
+		public Builder withTimestamp(long timestamp) {
 			this.timestamp = timestamp;
 			return this;
 		}
 
-		public Builder developerMessage(String developerMessage) {
+		public Builder withDeveloperMessage(String developerMessage) {
 			this.developerMessage = developerMessage;
 			return this;
 		}

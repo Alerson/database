@@ -15,12 +15,12 @@ public class RestExceptionHandler {
 
 	@ExceptionHandler(ResourceNotFoundException.class)
 	public ResponseEntity<?> hendleResourceNotFoundException(ResourceNotFoundException rnfEXception) {
-		ResourceNotFoundDetail rnfDetail = ResourceNotFoundDetail.Builder.newBuilder()
-				.timestamp(new Date().getTime())
-				.status(HttpStatus.NOT_FOUND.value())
-				.title("Resource Not Found")
-				.detail(rnfEXception.getMessage())
-				.developerMessage(rnfEXception.getClass().getName())
+		ResourceNotFoundDetail rnfDetail = ResourceNotFoundDetail.builder()
+				.withTimestamp(new Date().getTime())
+				.withStatus(HttpStatus.NOT_FOUND.value())
+				.withTitle("Resource Not Found")
+				.withDetail(rnfEXception.getMessage())
+				.withDeveloperMessage(rnfEXception.getClass().getName())
 				.build();
 		return new ResponseEntity<>(rnfDetail, HttpStatus.NOT_FOUND);
 	}
